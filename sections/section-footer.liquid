@@ -1,0 +1,186 @@
+{% comment %}theme-check-disable UndefinedObject{% endcomment %}
+{{ 'footer.css' | asset_url | stylesheet_tag }}
+
+  <div class="container">
+    <div class="footer__top">
+      <div class="row">
+        <div class="col-md-3 footer__item">
+            <a href="/" class="logo">
+              {%- if section.settings.logo != blank -%}
+                  <img src="{{ section.settings.logo | img_url: 'master' }}"
+                      alt="{{ shop.name | escape }}"
+                      loading="lazy"
+                      width="120"
+                      height="48"
+                      >
+              {%- endif -%}
+          </a>
+          <div class="footer__links">
+            {%- if section.settings.phone != blank -%}
+              <a href="tel:{{- section.settings.phone -}}" class="footer__link footer__link--phone d-flex align-items-center">{{- section.settings.phone -}}</a>
+            {%- endif -%}
+            {%- if section.settings.email != blank -%}
+              <a href="mailto:{{- section.settings.email -}}" class="footer__link footer__link--mail d-flex align-items-center">{{- section.settings.email -}}</a>
+            {%- endif -%}
+          </div>
+          <div class="footer__social">
+            {%- if section.settings.insta != blank -%}
+              <a href="{{- section.settings.insta -}}">{% render 'icon-instagram2' %}</a>
+            {%- endif -%}
+            {%- if section.settings.twit != blank -%}
+              <a href="{{- section.settings.twit -}}">{% render 'icon-twiter' %}</a>
+            {%- endif -%}
+            {%- if section.settings.face != blank -%}
+              <a href="{{- section.settings.face -}}">{% render 'icon-facebook2' %}</a>
+            {%- endif -%}
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          {%- if section.settings.ttlfooter1 != blank -%}
+            <h4>{{- section.settings.ttlfooter1 -}}</h4>
+          {%- endif -%}
+          <ul class="footer__nav">
+            <li><a href="">About Us</a></li>
+            <li><a href="">Miller Brothers Racing</a></li>
+            <li><a href="">MAO Racing Series</a></li>
+            <li><a href="">Outlaw Series</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 col-6">
+          {%- if section.settings.ttlfooter2 != blank -%}
+            <h4>{{- section.settings.ttlfooter2 -}}</h4>
+          {%- endif -%}
+          <ul class="footer__nav">
+            <li><a href="">About Us</a></li>
+            <li><a href="">Miller Brothers Racing</a></li>
+            <li><a href="">MAO Racing Series</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          {%- if section.settings.ttlAdress != blank -%}
+            <h4>{{- section.settings.ttlAdress -}}</h4>
+          {%- endif -%}
+          {%- if section.settings.address != blank -%}
+              <address>
+                {{- section.settings.address -}}
+              </address>
+          {%- endif -%}
+          <a href="" class="adress-link">Get Directions</a>
+          {%- if section.settings.time != blank -%}
+            <p>{{- section.settings.time -}}</p>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="row">
+        {%- if section.settings.copy1 != blank -%}
+          <p class="col-md-4">{{- section.settings.copy1 -}}</p>
+        {%- endif -%}
+        <div class="col-md-5 d-none d-md-flex align-items-center">
+          {%- unless shop.enabled_payment_types == empty -%}
+              {%- for type in shop.enabled_payment_types -%}
+                  {{ type | payment_type_svg_tag: class: 'icon-payment' }}
+              {%- endfor -%}
+          {%- endunless -%}
+        </div>
+        {%- if section.settings.copy2 != blank -%}
+          <p class="col-md-3">{{- section.settings.copy2 -}}</p>
+        {%- endif -%}
+    </div>
+  </div>
+
+{% schema %}
+{
+  "name": "t:sections.footer.name",
+  "tag": "footer",
+  "settings": [
+    {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "LOGO"
+    },
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "PHONE",
+      "default": "+1 512 981 3011"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "EMAIL",
+      "default": "raceshop.com"
+    },
+    {
+      "type": "url",
+      "id": "insta",
+      "label": "INSTAGRAM"
+    },
+    {
+      "type": "url",
+      "id": "twit",
+      "label": "TWITTER"
+    },
+    {
+      "type": "url",
+      "id": "face",
+      "label": "FACEBOOK"
+    },
+    {
+      "type": "text",
+      "id": "ttlfooter1",
+      "label": "Title Footer Menu-1",
+      "default": "COMPANY"
+    },
+    {
+      "type": "text",
+      "id": "ttlfooter2",
+      "label": "Title Footer Menu-2",
+      "default": "SHOP"
+    },
+    {
+      "type": "text",
+      "id": "ttlAdress",
+      "label": "Title Address",
+      "default": "ADDRESS"
+    },
+    {
+        "type": "html",
+        "id": "address",
+        "label": "ADDRESS"
+    },
+    {
+        "type": "text",
+        "id": "time",
+        "label": "WORKING HOURSE"
+    },
+    {
+        "type": "text",
+        "id": "copy1",
+        "label": "Copyright Left",
+        "default": "Copyright © 2022 UTVRaceShop.Com. All Rights Reserved."
+    },
+    {
+        "type": "text",
+        "id": "copy2",
+        "label": "Copyright Right",
+        "default": "Shipping Policy Terms of Service"
+    }
+
+  ],
+  "blocks": [
+			{
+				"type": "pay",
+				"name": "payment system",
+				 "settings": [
+            {
+              "type": "image_picker",
+              "id": "img",
+              "label": "Image"
+            }
+				]
+			}
+	]
+}
+{% endschema %}

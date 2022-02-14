@@ -1,0 +1,110 @@
+@use 'settings'  as s;
+@use 'mixins'  as m;
+@import './font';
+
+* {
+  margin: 0px;
+	padding: 0px;
+}
+body {
+  font-family: s.$default;
+  font-size: s.$base;
+  line-height: 1.5;
+  color: s.$black;
+}
+
+h1, .h1 {
+  font-family: s.$title;
+  font-size: s.$h1;
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 2%;
+  @include m.media-xl() {
+    font-size: s.$h1-xl;
+  }
+  @include m.media-sm() {
+    font-size: s.$h1-sm;
+  }
+}
+
+h2, .h2 {
+  font-family: s.$title;
+  font-size: s.$h2;
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 2%;
+  @include m.media-xl() {
+    font-size: s.$h2-xl;
+  }
+  @include m.media-sm() {
+    font-size: s.$h2-sm;
+  }
+}
+
+h3, .h3 {
+  font-family: s.$title;
+  font-size: s.$h3;
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 2%;
+  @include m.media-xl() {
+    font-size: s.$h3-xl;
+  }
+  @include m.media-sm() {
+    font-size: s.$h3-sm;
+  }
+}
+
+h4, .h4 {
+  font-family: s.$title;
+  font-size: s.$h4;
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+  @include m.media-xl() {
+    font-size: s.$h4-xl;
+  }
+}
+
+h5, .h5 {
+  font-family: s.$title;
+  font-size: s.$h5;
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+  @include m.media-xl() {
+    font-size: s.$h5-xl;
+  }
+}
+
+p {
+  font-size: s.$base;
+  line-height: 1.5;
+  font-weight: 400;
+  @include m.media-md() {
+    font-size: s.$base-small;
+  }
+}
+
+button, .btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 302px;
+  height: 60px;
+  font-family: s.$bold;
+  font-size: s.$base-small;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: s.$lime;
+  cursor: pointer;
+  transition: all 400ms;
+  &:hover, &:focus {
+    background: s.$lime-dark;
+  }
+
+}
+

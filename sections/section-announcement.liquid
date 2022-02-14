@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="{{- 'announcement.css' | asset_url -}}">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        {%- if section.settings.text != blank -%}
+          <p class="announcement-bar__text">{{- section.settings.text -}}</p>
+        {%- endif -%}
+      </div>
+      <div class="col-6  d-flex justify-content-end">
+        <ul class="announcement-bar__nav d-flex">
+          <li><a href="">About Us</a></li>
+          <li><a href="">Contact Us</a></li>
+        </ul>
+        {%- if section.settings.link != blank -%}
+          <a href="tel:{{- section.settings.link -}}" class="announcement-bar__link d-flex align-items-center">{{- section.settings.link -}}</a>
+        {%- endif -%}
+        </div>
+    </div>
+  </div>
+
+{% schema %}
+{
+  "name": "t:sections.announcement-bar.name",
+  "tag": "section",
+  "class": "announcement-bar",
+  "settings": [
+        {
+          "type": "html",
+          "id": "text",
+          "default": "<span>Free Shipping</span> on All orders <span>$200+</span>",
+          "label": "t:sections.announcement-bar.blocks.announcement.settings.text.label"
+        },
+        {
+          "type": "text",
+          "id": "link",
+          "default": "+1 512 981 3011",
+          "label": "Announcement-Bar Link"
+        }
+      ]
+}
+{% endschema %}

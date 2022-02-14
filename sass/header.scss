@@ -1,0 +1,66 @@
+@use 'settings'  as s;
+
+header {
+    padding: 20px 0;
+    border-bottom: 1px solid s.$grey-dark;
+}
+a.logo {
+    display: block;
+    max-width: 120px;
+}
+.header-nav__list {
+    font-size: 14px;
+    text-transform: uppercase;
+    li {
+        flex-grow: 1;
+    }
+    a {
+        display: block;
+        &:hover {
+            font-weight: 600;
+            color: s.$blue-dark;
+        }
+    }
+}
+.header__links {
+    max-width: 118px;
+    margin: 0 0 0 auto;
+}
+
+.mob-btn {
+    position: relative;
+    background: none;
+    width: 18px;
+    height: 15px;
+    span {
+        display: inline-block;
+        width: 18px;
+        height: 2px;
+        background: s.$black;
+        border-radius: 10px;
+        &::before {
+            content: "";
+            position: absolute;
+            width: 18px;
+            height: 2px;
+            background: #262626;
+            top: 0;
+            left: 0;
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            width: 18px;
+            height: 2px;
+            background: #262626;
+            bottom: 0;
+            left: 0;
+        }
+    }
+}
+
+@media screen and (max-width: 992px) {
+    header a.logo {
+        margin: 0 auto;
+    }
+}

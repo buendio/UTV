@@ -1,0 +1,50 @@
+@use 'settings'  as v;
+
+// 1360
+@mixin media-xxl() {
+  @media (max-width: v.$screen-xxl) {
+    @content;
+  }
+}
+// 1200
+@mixin media-xl() {
+  @media (max-width: v.$screen-xl) {
+    @content;
+  }
+}
+// 991
+@mixin media-lg() {
+  @media (max-width: v.$screen-lg) {
+    @content;
+  }
+}
+// 767
+@mixin media-md() {
+  @media (max-width: v.$screen-md) {
+    @content;
+  }
+}
+// 575
+@mixin media-sm() {
+  @media (max-width: v.$screen-sm) {
+    @content;
+  }
+}
+// 480
+@mixin media-xs() {
+  @media (max-width: v.$screen-xs) {
+    @content;
+  }
+}
+// 400
+@mixin _media-xxs() {
+  @media (max-width: v.$screen-xxs) {
+    @content;
+  }
+}
+
+@mixin ul_clear() {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
