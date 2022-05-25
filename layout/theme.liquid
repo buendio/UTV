@@ -13,7 +13,7 @@
   {% else %}
     <script src="{{ 'optimization.js' | asset_url }}" defer></script>
     {% capture content_for_header2 %}{{ content_for_header }}{% endcapture %}
-    {{ content_for_header2 | replace: ' defer="defer" ', ' type="no-load" ' | replace: " src=", " data-src=" | replace: "window.addEventListener('load', asyncLoad, false);", "window.addEventListener('custom_load', asyncLoad, false);" | replace: "DOMContentLoaded", "" }}
+    {{ content_for_header2 | replace: ' defer="defer" ', ' type="no-load" ' | replace: "src=", "data-src=" | replace: "window.addEventListener('load', asyncLoad, false);", "window.addEventListener('custom_load', asyncLoad, false);" | replace: "DOMContentLoaded", "" }}
   {% endif %}
 </head>
 
