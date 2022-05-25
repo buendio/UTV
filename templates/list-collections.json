@@ -2,9 +2,7 @@
   "sections": {
     "main": {
       "type": "main-list-collections",
-      "settings": {
-        "image_ratio": "square"
-      }
+      "settings": {}
     }
   },
   "order": [
