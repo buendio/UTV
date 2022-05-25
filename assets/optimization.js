@@ -83,6 +83,7 @@
       counterScripts++;
       lazyLoadScripts();
     }
+    console.log(counterScripts);
   }
 
   function lazyLoadJS(url) {
